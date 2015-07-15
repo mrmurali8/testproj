@@ -1,0 +1,45 @@
+<div class="col-md-12" ng-init="fnInitTest()">
+    <div class="col-md-12">
+        <form class="form-inline">
+            <div class="form-group">
+                <input type="text" ng-model="selectedM" class="form-control" placeholder="Select matrix" typeahead-on-select='onMatrixSelect($item, $model, $label)'
+                       typeahead="matrix as matrix.label for matrix in matrixDD | filter:{label:$viewValue} | limitTo:8"/>
+            </div>
+            <div class="form-group">
+                <input type="text" ng-model="selectedObr" class="form-control" placeholder="Select obr type" typeahead-on-select='onObrTypeSelect($item, $model, $label)'
+                                           typeahead="obr as obr.label for obr in obrDD | filter:$viewValue | limitTo:8"/>
+            </div>
+            <div class="form-group">
+                <input type="text" ng-model="selectedTwo" class="form-control" placeholder="Select segment 2" typeahead-on-select='onSegment2Select($item, $model, $label)'
+                       typeahead="segTwo as segTwo.label for segTwo in segTwoDD | filter:$viewValue | limitTo:8"/>
+            </div>
+            <div class="form-group">
+                <input type="text" ng-model="selectedThree" class="form-control" placeholder="Select segment 3" typeahead-on-select='onSegment3Select($item, $model, $label)'
+                       typeahead="segThree as segThree.label for segThree in segThreeDD | filter:$viewValue | limitTo:8"/>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" name="resetBtn" ng-click="fnResetData()">Reset</button>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" name="deletedTestBtn" ng-click="fnDeletedTestData()">Removed Tests</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-12 top-buffer">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-4"><span class="panel-title">Lab Tests Summary</span></div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="loader-container" ng-if="isPogress">
+                    <div class="loader">
+                        <img src="../images/loading.gif" height="100" width="100"/>
+                    </div>
+                </div>
+                <div ng-if="!isPogress" class="gridStyle" ng-grid="testLabGridOptions"></div>
+            </div>
+        </div>
+    </div>
+</div>

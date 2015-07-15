@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="NodeCRUD">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Test POC</title>
+    <!--Vendor CSS-->
+    <link rel="stylesheet" href="css/vendor/bootstrap.css">
+    <link rel="stylesheet" href="css/vendor/ng-grid.min.css">
+    <link rel="stylesheet" href="css/vendor/toastr.min.css">
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="css/custom/style.css">
+    <!-- Vendor JS-->
+    <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="js/vendor/toastr.min.js"></script>
+    <script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/vendor/angular.min.js"></script>
+    <script type="text/javascript" src="js/vendor/angular-route.js"></script>
+    <script type="text/javascript" src="js/vendor/angular-resource.js"></script>
+    <script type="text/javascript" src="js/vendor/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/vendor/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="js/vendor/ng-grid-2.0.14.min.js"></script>
+    <script type="text/javascript" src="js/vendor/ng-grid-2.0.14.debug.js"></script>
+    <script type="text/javascript" src="js/vendor/ng-grid-flexible-height.js"></script>
+</head>
+<body>
+    <div class="col-md-12" ng-include="'views/navBar.html'" ng-controller="NavBarCtrl"></div>
+    <div class="col-md-12">
+        <div class="row" ng-view=""></div>
+    </div>
+</body>
+<!--Custom JS-->
+<!--Application Initialize JS-->
+<script type="text/javascript" src="js/custom/app.js"></script>
+<!--Service JS-->
+<script type="text/javascript" src="js/custom/directives/directive.js"></script>
+<!--Service JS-->
+<script type="text/javascript" src="js/custom/services/test.js"></script>
+<!--Controller JS-->
+<script type="text/javascript" src="js/custom/controllers/navBarCtrl.js"></script>
+<script type="text/javascript" src="js/custom/controllers/listCtrl.js"></script>
+<script type="text/javascript" src="js/custom/controllers/testCtrl.js"></script>
+</html>

@@ -1,0 +1,29 @@
+.top-buffer { margin-top:20px; }
+.loader-container{height: 450px}
+.loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -32px; /* -1 * image width / 2 */
+    margin-top: -32px; /* -1 * image height / 2 */
+}
+.gridStyle{
+    border: 1px solid #cccccc;
+}
+.ngHeaderCell,.ngFooterPanel{
+    background-color: #D9EDF7;
+}
+.ngCellText , .grid-action{
+    padding: 15px 5px;
+}
+.ngViewport {
+    height: auto !important;
+}
+.form-group .help-block {
+    display: none;
+}
+
+.form-group.has-error .help-block {
+    display: block;
+}
+

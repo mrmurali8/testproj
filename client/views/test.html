@@ -1,0 +1,103 @@
+<div class="col-md-12" ng-init="fnInitTest()">
+    <div class="col-md-12 top-buffer">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-4"><span class="panel-title">Test</span></div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" ng-init="findOne()" name="labTestForm" novalidate>
+                    <div class="form-group" show-errors='{showSuccess: true}'>
+                        <label for="labStatus" class="col-sm-2 control-label">Lab Status:</label>
+                        <div class="col-sm-6">
+                            <input type="text" name="labStatus" class="form-control" id="labStatus"
+                                   placeholder="Enter Lab Status" ng-model="test.lab_test_status" required>
+                            <p class="help-block" ng-if="labTestForm.labStatus.$error.required">The lab status is required</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="testStart" class="col-sm-2 control-label">Test Start:</label>
+                        <div class="col-sm-6">
+                            <p class="input-group">
+                                <input type="text" class="form-control"  datepicker-popup="{{format}}" ng-model="test.test_start_date"
+                                       is-open="opened" datepicker-options="dateOptions" id="testStart"
+                                       date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"/>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open($event)"><i
+                                            class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group" show-errors='{showSuccess: true}'>
+                        <label for="objectVersion" class="col-sm-2 control-label">Object Version:</label>
+                        <div class="col-sm-6">
+                            <input type="text" name="objectVersion" class="form-control" id="objectVersion"
+                                   placeholder="Enter object version" ng-model="test.object_version_id" required>
+                            <p class="help-block" ng-if="labTestForm.objectVersion.$error.required">The object version is required</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="createdBy" class="col-sm-2 control-label">Created By:</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" name="createdBy" class="form-control" id="createdBy"
+                                   placeholder="Enter Created by" ng-model="test.created_by">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="LastUpdatedBy" class="col-sm-2 control-label">Last Updated By:</label>
+                        <div class="col-sm-6">
+                            <input type="text" name="LastUpdatedBy" class="form-control" id="LastUpdatedBy"
+                                   placeholder="Enter Last Updated by" ng-model="test.last_updated_by">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="LastUpdateDate" class="col-sm-2 control-label">Last Update Date:</label>
+                        <div class="col-sm-6">
+                            <input type="text" name="LastUpdateDate" class="form-control" id="LastUpdateDate"
+                                   placeholder="Enter Last Updated by" ng-model="test.last_update_date" readonly ng-disabled="true">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10" ng-if="loadingIsDone">
+                            <bs-dropdown data-menu-type="button" select-val="test.matrix_id = selectedVal"
+                                         preselected-item="test.matrix_id" data-dropdown-data="matrixDD"></bs-dropdown>
+                            <bs-dropdown data-menu-type="button" select-val="test.obr_type_id = selectedVal"
+                                         preselected-item="test.obr_type_id" data-dropdown-data="obrDD"></bs-dropdown>
+                            <bs-dropdown data-menu-type="button" select-val="test.segment_num2 = selectedVal"
+                                         preselected-item="test.segment_num2"
+                                         data-dropdown-data="segTwoDD"></bs-dropdown>
+                            <bs-dropdown data-menu-type="button" select-val="test.segment_num3 = selectedVal"
+                                         preselected-item="test.segment_num3"
+                                         data-dropdown-data="segThreeDD"></bs-dropdown>
+                        </div>
+                        <div class="col-sm-offset-2 col-sm-10" ng-if="!loadingIsDone">
+                            <bs-dropdown data-menu-type="button" select-val="test.matrix_id = selectedVal"
+                                         preselected-item="test.matrix_id" data-dropdown-data="matrixDD"></bs-dropdown>
+                            <bs-dropdown data-menu-type="button" select-val="test.obr_type_id = selectedVal"
+                                         preselected-item="test.obr_type_id" data-dropdown-data="obrDD"></bs-dropdown>
+                            <bs-dropdown data-menu-type="button" select-val="test.segment_num2 = selectedVal"
+                                         preselected-item="test.segment_num2"
+                                         data-dropdown-data="segTwoDD"></bs-dropdown>
+                            <bs-dropdown data-menu-type="button" select-val="test.segment_num3 = selectedVal"
+                                         preselected-item="test.segment_num3"
+                                         data-dropdown-data="segThreeDD"></bs-dropdown>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button id="submit_button" type="submit" name="submit" class="btn btn-success"
+                                    ng-click="fnSaveTest(test)">Save
+                            </button>
+                            <a id="cancel_button" ng-href="#/" name="cancel" class="btn btn-warning">Cancel</a>
+                            <!--<button class="btn btn-link" ng-click="fnReset()">Reset</button>-->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+            

@@ -33,22 +33,22 @@ app.controller('listCtrl',
         };
 
         $scope.onMatrixSelect = function ($item, $model, $label) {
-            $scope.paramObj.matrix_id = $item.id;
+            $scope.paramObj.matrixId = $item.id;
             $scope.getPagedDataAsync($scope.paramObj, $scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
         };
 
         $scope.onObrTypeSelect = function ($item, $model, $label) {
-            $scope.paramObj.obr_type_id = $item.id;
+            $scope.paramObj.obrId = $item.id;
             $scope.getPagedDataAsync($scope.paramObj, $scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
         };
 
         $scope.onSegment2Select = function ($item, $model, $label) {
-            $scope.paramObj.segment_num2 = $item.id;
+            $scope.paramObj.segment2 = $item.id;
             $scope.getPagedDataAsync($scope.paramObj, $scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
         };
 
         $scope.onSegment3Select = function ($item, $model, $label) {
-            $scope.paramObj.segment_num3 = $item.id;
+            $scope.paramObj.segment3 = $item.id;
             $scope.getPagedDataAsync($scope.paramObj, $scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
         };
 

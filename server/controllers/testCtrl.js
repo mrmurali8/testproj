@@ -3,16 +3,15 @@
  */
 
 exports.list = function(req, res){
-    var matrixId = req.query.matrixId;
-    var obrId = req.query.obrId;
-    var segment2 = req.query.segment2;
-    var segment3 = req.query.segment3;
+    var matrixId = req.query.matrixId ? ' and t1.matrix_id='+req.query.matrixId : '';
+    var obrId = req.query.obrId ? ' and t1.obr_type_id='+req.query.obrId : '';
+    var segment2 = req.query.segment2 ? ' and t1.segment_num2='+req.query.segment2 : '';
+    var segment3 = req.query.segment3 ? ' and t1.segment_num3='+req.query.segment3 : '';
     var testStatus = req.query.testStatus ? req.query.testStatus : 'ACTIVE';
-    var sql = 'SELECT * FROM test1 t1,test_att_lookups t where t1.matrix_id = t.matrix_id and t1.obr_type_id = t.obr_type_id and'
-        +' t1.segment_num2 = t.segment_num2 and t1.segment_num3 = t.segment_num3 and STATUS="'+testStatus +'"';
-    if(matrixId && obrId && segment2 && segment3){
-        sql += ' AND t1.matrix_id='+matrixId+' AND t1.obr_type_id='+obrId+' AND t1.SEGMENT_NUM2='+segment2+' AND t1.SEGMENT_NUM3='+segment3;
-    }
+    var sql ='select * from test1 t1 LEFT OUTER JOIN  test_att_lookups t2 on'+
+    ' t1.matrix_id = t2.matrix_id and t1.obr_type_id = t2.obr_type_id and'+
+    ' t1.segment_num2 = t2.segment_num2 and t1.segment_num3 = t2.segment_num3'+
+    ' where t1.status="'+testStatus+'"'+ matrixId + obrId + segment2 + segment3;
     req.getConnection(function(err,conn){
         if (err) console.log("Cannot Connect -> ",err);
         var query = conn.query(sql,function(err,rows){

@@ -56,6 +56,7 @@ app.controller("testCtrl",['$scope', '$location', '$routeParams', 'TestFactory',
                     $scope.segTwoDD.push({id:val.SEGMENT_NUM2,name:val.SEGMENT_NUM2_DESC});
                     $scope.segThreeDD.push({id:val.SEGMENT_NUM3,name:val.SEGMENT_NUM3_DESC});
                 });
+                $scope.findOne();
             });
         };
 
